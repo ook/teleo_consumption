@@ -34,5 +34,10 @@ class TeleoScrapper
 end
 
 if File.identical?(__FILE__, $0)
-  puts TeleoScrapper.new.run.to_json
+  data = TeleoScrapper.new.run.to_json
+  if ENV['http_target']
+    require 'http'
+    Http.post(ENV['http_target'], json: data)
+  end
+  puts data
 end
