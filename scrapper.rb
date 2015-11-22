@@ -1,6 +1,6 @@
 require 'mechanize'
 
-class Scrapper
+class TeleoScrapper
   HOST = 'https://www.service-client.veoliaeau.fr'
 
   def run
@@ -32,6 +32,7 @@ class Scrapper
   end
 
 end
+
 if File.identical?(__FILE__, $0)
-  puts Scrapper.new.run.to_json
+  puts TeleoScrapper.new.run.to_json
 end
