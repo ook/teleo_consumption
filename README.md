@@ -11,6 +11,12 @@ You must:
 * enabled the Téléo+ service
 
 ## The script
-You can't do simpler. Either ran it via command line (provide your username and password as env variables) or include the class in your project and call 
+You can't do simpler. Either ran it via command line (provide your username and password as env variables)
+
+`veo_usr=your@identifier.there veo_pwd=such_a_secret bundle exec ruby scrapper.rb`
+
+or include the class in your project and call 
+
 `TeleoScrapper.run`
+
 You'll get a sorted by date Array of arrays. Each array has its first element as date and the second a hash with keys "val" dans "est" the first is the index for the date, the second tell you if it's estimated or a real data read from your counter.
