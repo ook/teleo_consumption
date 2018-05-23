@@ -1,7 +1,7 @@
 require 'mechanize'
 
 class TeleoScrapper
-  HOST = 'https://www.service-client.veoliaeau.fr'
+  HOST = 'https://www.service.eau.veolia.fr'
 
   def run
     @username = ENV['veo_usr']
@@ -21,6 +21,7 @@ class TeleoScrapper
     page = form.submit
 
     # after login@
+
     page = page.links.find { |l| l.href =~ /consommation/ }.click
     page = page.links.find { |l| l.href =~ /releves/ }.click
     form = page.forms.find { |f| f.name == 'formulaireConso_releve' }
